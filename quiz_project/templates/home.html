@@ -1,0 +1,53 @@
+{% extends 'quzzz/base.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>quizz app</title>
+    <link rel="stylesheet"  href="{'bootstrap/css/bootstrap.min.css'}">
+    {% load static %}
+</head>
+<body>
+	{% block content %}
+    
+<div class="container">
+    <h1 class="text-danger mt-3">Simple Quiz App Using Python Django </h1>
+    <hr>
+    <div>
+     {% for i in Quiz %}
+       <table>
+            <tr>
+                <td class="text-primary">{{i.id}},{{i.question}} </td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option1" value="{{i.option1}}">{{i.option1}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option2" value="{{i.option2}}">{{i.option2}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option3" value="{{i.option3}}">{{i.option3}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option4" value="{{i.option4}}">{{i.option4}}</td>
+            </tr>
+
+            <tr>
+                <td><label id="corans" class= "rb" style="display:none ; color : green"><b>{{i.answer}}</b></label></td>
+            </tr>
+
+        </table>
+<hr>
+
+        {% endfor %}
+        <input type="submit" class="btn btn-success" value="Submit" id="b1" onclick="getanswers()">
+        <br>
+        <b id="UserAnswers"></b>
+       {% endblock %}
+        </div>
+</div>
+
+</body>
+</html>
